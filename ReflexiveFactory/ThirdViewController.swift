@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class ThirdViewController: UIViewController {
+class ThirdViewController: UIViewController {
     
     let descriptionLabel = UILabel()
     
