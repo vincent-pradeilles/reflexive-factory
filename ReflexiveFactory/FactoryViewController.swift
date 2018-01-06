@@ -43,19 +43,19 @@ extension FactoryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let newControllerType = viewControllerTypes[indexPath.row]
         
-        if let newControllerType = newControllerType as? (UIViewController & InitialDataInstantiable).Type {
-            let alert = UIAlertController(title: "Choose initial data", message: nil, preferredStyle: .actionSheet)
-            let instantiation = { (data: Any) in
+        if let newControllerType = newControllerType as? (UIViewController & UseCaseInstantiable).Type {
+            let alert = UIAlertController(title: "Choose a use case", message: nil, preferredStyle: .actionSheet)
+            let instantiation = { (useCase: String) in
                 alert.dismiss(animated: true, completion: nil)
-                self.show(newControllerType.instantiate(with: data), sender: self)
+                self.show(newControllerType.instantiate(for: useCase), sender: self)
             }
             
-            alert.addAction(UIAlertAction(title: "Foo", style: .default, handler: { (action) in
-                instantiation(action.title as Any)
+            alert.addAction(UIAlertAction(title: "Login", style: .default, handler: { (action) in
+                instantiation(action.title!.lowercased())
             }))
             
-            alert.addAction(UIAlertAction(title: "Bar", style: .default, handler: { (action) in
-                instantiation(action.title as Any)
+            alert.addAction(UIAlertAction(title: "Logout", style: .default, handler: { (action) in
+                instantiation(action.title!.lowercased())
             }))
             
             present(alert, animated: true, completion: nil)

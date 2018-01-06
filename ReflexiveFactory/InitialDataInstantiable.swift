@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol InitialDataInstantiable {    
-    static func instantiate(with initialData: Any) -> Self
+protocol UseCaseInstantiable {
+    static func instantiate(for useCase: String) -> Self
 }

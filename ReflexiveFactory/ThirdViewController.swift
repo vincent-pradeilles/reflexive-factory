@@ -10,37 +10,50 @@ import UIKit
 
 class ThirdViewController: UIViewController {
     
-    let descriptionLabel = UILabel()
+    enum UseCase: String {
+        case login
+        case logout
+    }
     
-    var data: String? = nil
+    var contentView: UIView!
+    
+    var currentUseCase: UseCase = .login
     
     override func loadView() {
         super.loadView()
         
-        descriptionLabel.text = """
-        This is the third view controller.
-        The initial data is: \(data ?? "")
-        """
-        descriptionLabel.textColor = .black
-        descriptionLabel.textAlignment = .center
-        descriptionLabel.numberOfLines = 2
-        view.addSubview(descriptionLabel)
-        
+        switch currentUseCase {
+        case .login:
+            let inputField = UITextField()
+            inputField.placeholder = "Enter your login"
+            
+            contentView = inputField
+        case .logout:
+            let button = UIButton(type: .system)
+            button.setTitle("Logout", for: .normal)
+            
+            contentView = button
+        }
+
+        view.addSubview(contentView)
+
         view.backgroundColor = .white
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        descriptionLabel.frame = view.bounds
+        contentView.frame = view.bounds
     }
 }
 
-extension ThirdViewController: InitialDataInstantiable {
-    static func instantiate(with initialData: Any) -> Self {
+extension ThirdViewController: UseCaseInstantiable {
+    static func instantiate(for useCase: String) -> Self {
         let viewController = self.init()
         
-        viewController.data = initialData as? String
+        if let useCase = UseCase(rawValue: useCase) {
+            viewController.currentUseCase = useCase
+        }
         
         return viewController
     }
