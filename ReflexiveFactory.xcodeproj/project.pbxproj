@@ -11,7 +11,7 @@
 		BF44B971200116EB00A73A1E /* RefexiveFactoryKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF44B96A200116EB00A73A1E /* RefexiveFactoryKit.framework */; };
 		BF44B972200116EB00A73A1E /* RefexiveFactoryKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BF44B96A200116EB00A73A1E /* RefexiveFactoryKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BF44B978200116FE00A73A1E /* ReflexiveFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF44B977200116FE00A73A1E /* ReflexiveFactory.swift */; };
-		BF44B97A200117D300A73A1E /* InitialDataInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF44B979200117D300A73A1E /* InitialDataInstantiable.swift */; };
+		BF44B97A200117D300A73A1E /* UseCaseInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF44B979200117D300A73A1E /* UseCaseInstantiable.swift */; };
 		BFA524052001108C00B6FADB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA524042001108C00B6FADB /* AppDelegate.swift */; };
 		BFA524072001108C00B6FADB /* FactoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA524062001108C00B6FADB /* FactoryViewController.swift */; };
 		BFA5240A2001108C00B6FADB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFA524082001108C00B6FADB /* Main.storyboard */; };
@@ -51,7 +51,7 @@
 		BF44B96C200116EB00A73A1E /* RefexiveFactoryKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RefexiveFactoryKit.h; sourceTree = "<group>"; };
 		BF44B96D200116EB00A73A1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF44B977200116FE00A73A1E /* ReflexiveFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflexiveFactory.swift; sourceTree = "<group>"; };
-		BF44B979200117D300A73A1E /* InitialDataInstantiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialDataInstantiable.swift; sourceTree = "<group>"; };
+		BF44B979200117D300A73A1E /* UseCaseInstantiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseInstantiable.swift; sourceTree = "<group>"; };
 		BFA524012001108C00B6FADB /* ReflexiveFactory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReflexiveFactory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFA524042001108C00B6FADB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFA524062001108C00B6FADB /* FactoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryViewController.swift; sourceTree = "<group>"; };
@@ -119,7 +119,7 @@
 				BFA524182001113500B6FADB /* SecondViewController.swift */,
 				BFA5241A2001114C00B6FADB /* ThirdViewController.swift */,
 				BFA524062001108C00B6FADB /* FactoryViewController.swift */,
-				BF44B979200117D300A73A1E /* InitialDataInstantiable.swift */,
+				BF44B979200117D300A73A1E /* UseCaseInstantiable.swift */,
 				BFA524082001108C00B6FADB /* Main.storyboard */,
 				BFA5240B2001108C00B6FADB /* Assets.xcassets */,
 				BFA5240D2001108C00B6FADB /* LaunchScreen.storyboard */,
@@ -254,7 +254,7 @@
 			files = (
 				BFA524192001113500B6FADB /* SecondViewController.swift in Sources */,
 				BFA524172001109A00B6FADB /* FirstViewController.swift in Sources */,
-				BF44B97A200117D300A73A1E /* InitialDataInstantiable.swift in Sources */,
+				BF44B97A200117D300A73A1E /* UseCaseInstantiable.swift in Sources */,
 				BFA5241B2001114C00B6FADB /* ThirdViewController.swift in Sources */,
 				BFA524072001108C00B6FADB /* FactoryViewController.swift in Sources */,
 				BFA524052001108C00B6FADB /* AppDelegate.swift in Sources */,

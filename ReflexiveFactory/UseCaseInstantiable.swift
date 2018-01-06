@@ -1,5 +1,5 @@
 //
-//  InitialDataInstantiable.swift
+//  UseCaseInstantiable.swift
 //  ReflexiveFactory
 //
 //  Created by Vincent on 06/01/2018.
