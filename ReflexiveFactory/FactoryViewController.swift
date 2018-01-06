@@ -24,10 +24,7 @@ class FactoryViewController: UIViewController {
 }
 
 extension FactoryViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewControllerTypes.count
     }
@@ -42,6 +39,7 @@ extension FactoryViewController: UITableViewDataSource {
 }
 
 extension FactoryViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let newControllerType = viewControllerTypes[indexPath.row]
         

@@ -13,36 +13,33 @@ import ObjectiveC
 public struct ReflexiveFactory {
     
     public static func retrieveAllViewControllers(in bundle: Bundle) -> [UIViewController.Type] {
-        let bundlePath = bundle.executablePath
+        guard let bundlePath = bundle.executablePath else { return [] }
         
-        var count: UInt32 = 0
+        var size: UInt32 = 0
         var classes: UnsafeMutablePointer<UnsafePointer<Int8>>!
         
         var viewControllers = [String]()
         
-        if let bundlePath = bundlePath {
+        classes = objc_copyClassNamesForImage(bundlePath, &size)
             
-            classes = objc_copyClassNamesForImage(bundlePath, &count)
-            
-            for index in 0..<count {
-                let className = classes[Int(index)]
+        for index in 0..<size {
+            let className = classes[Int(index)]
                 
-                if let name = NSString.init(utf8String:className) as String?,
-                    name.hasSuffix("Controller")
-                {
-                    viewControllers.append(name)
-                }
+            if let name = NSString.init(utf8String:className) as String?,
+                name.hasSuffix("Controller")
+            {
+                viewControllers.append(name)
             }
         }
         
         return viewControllers
             .sorted()
-            .flatMap { ReflexiveFactory.stringClassFromString($0) as? UIViewController.Type }
+            .flatMap { ReflexiveFactory.stringClassFromString($0, in: bundle) as? UIViewController.Type }
     }
     
-    private static func stringClassFromString(_ className: String) -> AnyClass? {
+    private static func stringClassFromString(_ className: String, in bundle: Bundle) -> AnyClass? {
         
-        let namespace = (Bundle.main.infoDictionary!["CFBundleExecutable"] as! String)
+        let namespace = (bundle.infoDictionary!["CFBundleExecutable"] as! String)
         
         let cls: AnyClass? = NSClassFromString("\(namespace).\(className)") ?? NSClassFromString(className)
         
