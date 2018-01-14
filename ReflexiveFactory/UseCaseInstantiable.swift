@@ -9,5 +9,6 @@
 import Foundation
 
 protocol UseCaseInstantiable {
+    static var useCases: [String] { get }
     static func instantiate(for useCase: String) -> Self
 }

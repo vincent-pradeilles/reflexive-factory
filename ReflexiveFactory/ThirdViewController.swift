@@ -48,6 +48,10 @@ class ThirdViewController: UIViewController {
 }
 
 extension ThirdViewController: UseCaseInstantiable {
+    static var useCases: [String] {
+        return [UseCase.login, UseCase.logout].map { $0.rawValue }
+    }
+    
     static func instantiate(for useCase: String) -> Self {
         let viewController = self.init()
         

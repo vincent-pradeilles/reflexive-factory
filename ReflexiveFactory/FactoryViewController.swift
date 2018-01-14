@@ -50,13 +50,13 @@ extension FactoryViewController: UITableViewDelegate {
                 self.show(newControllerType.instantiate(for: useCase), sender: self)
             }
             
-            alert.addAction(UIAlertAction(title: "Login", style: .default, handler: { (action) in
-                instantiation(action.title!.lowercased())
-            }))
+            let actions = newControllerType.useCases.map {
+                UIAlertAction(title: $0.capitalized, style: .default, handler: { (action) in
+                    instantiation(action.title!.lowercased())
+                })
+            }
             
-            alert.addAction(UIAlertAction(title: "Logout", style: .default, handler: { (action) in
-                instantiation(action.title!.lowercased())
-            }))
+            actions.forEach(alert.addAction)
             
             present(alert, animated: true, completion: nil)
         } else {
